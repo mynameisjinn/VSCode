@@ -18,6 +18,18 @@ class User{
     password;
     name;
     email;
+
+    // 생성자
+    constructor(username, password, name, email){
+        this.username = username;
+        this.password = password;
+        this.name = name;
+        this.email = email;
+    }
+
+    printName(){
+        console.log(this.name+"님의 정보");
+    }
 }
 
 // let User = {
@@ -26,15 +38,28 @@ class User{
 // };
 
 class UserMain {
+    // 싱글톤 
+    static #instance = null;
+    static getInstance(){
+        if(this.#instance == null){
+            this.#instance = new UserMain();
+        }
+        return this.#instance;
+    }
     main(){
-        let user = new User();
+        let user = new User("hyejin","1234","김혜진","hyejin@abc.com");
 
-        user.username = "hyejin";
-        user.password = "1234";
-        user.name = "김혜진";
-        user.email = "hyejin@abc.com";
+        // user.username = "hyejin";
+        // user.password = "1234";
+        // user.name = "김혜진";
+        // user.email = "hyejin@abc.com";
 
         console.log(user);
+
+        localStorage.username = user.username;
+        console.log("username: "+localStorage.username);
+
+        user.printName();
     }
 }
 
