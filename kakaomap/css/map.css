@@ -238,6 +238,10 @@ header{
     background-color: #1467dd;
 }
 
+.invisible-body{
+    display: none;
+}
+
 .report-error{
     border-bottom: 1px soild #f0f0f0;
     height: 84px;
@@ -330,8 +334,3 @@ header{
     cursor: pointer;
 }
 
-.favorite{
-    border-bottom: 1px solid #f0f0f0;
-    padding: 23px 0px 19px 19px;
-    height: 143px;
-}

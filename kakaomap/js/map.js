@@ -29,6 +29,7 @@ class MapService {
     load() {
         this.addSearchInputEvent();
         this.addAsideToggleButtonEvent();
+        this.addMenuTabEvent();
     }
 
     addSearchInputEvent(){
@@ -51,6 +52,24 @@ class MapService {
             }
             else{
                 toggleButton.textContent = "◀";
+            }
+        }
+    }
+    addMenuTabEvent(){
+        const mainMenuTab = document.querySelectorAll(".mainmenutab");
+        
+        for(let j=0; j < mainMenuTab.length; j++){
+            mainMenuTab[j].onClick = () => {
+                for(let i = 0; i < mainMenuTab.length; i++){
+                    mainMenuTab[i].classList.remove("tab-selected")
+                }
+                mainMenuTab[j].classList.add("tab-selected")
+
+                const searchBody = document.querySelectorAll(".search-body");
+                for(let t = 0; t < searchBody.length; t++){
+                    searchBody[t].classList.add("invisible-body");
+                }
+                searchBody[j].classList.remove("invisible-body");
             }
         }
     }
